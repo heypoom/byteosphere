@@ -1,5 +1,5 @@
 import Game from  '../core/Game.js'
-import {Vector} from '../core/utils.js'
+import Vector from '../core/Vector.js'
 
 export default class Controllable {
   constructor() {

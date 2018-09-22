@@ -1,4 +1,4 @@
-import {Vector} from "../core/utils.js"
+import Vector from "../core/Vector.js"
 
 export default class Pillar {
   reverse = false
