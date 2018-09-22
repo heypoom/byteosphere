@@ -6,6 +6,10 @@ class Registry {
   components = {}
   entities = {}
 
+  get list() {
+    return Object.values(this.entities)
+  }
+
   add(Component, ...params) {
     const eid = `${Component.name}:${genEID()}`
     
@@ -22,11 +26,9 @@ class Registry {
   }
 
   find(name) {
-    const list = Object.values(this.entities)
+    if (!name) return this.list
 
-    if (!name) return list
-
-    return list.filter(x => x.constructor.name === name)
+    return this.list.filter(x => x.constructor.name === name)
   }
 
   get(name) {
@@ -38,7 +40,7 @@ class Registry {
   }
 
   invoke(method, ...params) {
-    return Object.values(this.entities).map(e => {
+    return this.list.map(e => {
       if (e[method]) {
         e[method](Game.ctx, Game, ...params)
       }

@@ -47,16 +47,21 @@ class Game {
 
     const player = R.add(Player)
 
-    const keymap = {
-      w: () => player.up(),
-      s: () => player.down(),
-      a: () => player.left(),
-      d: () => player.right(),
+    const up = () => player.up()
+    const down = () => player.down()
+    const right = () => player.right()
+    const left = () => player.left()
 
-      ArrowUp: () => player.up(),
-      ArrowDown: () => player.down(),
-      ArrowLeft: () => player.left(),
-      ArrowRight: () => player.right(),
+    const keymap = {
+      w: up,
+      s: down,
+      a: left,
+      d: right,
+
+      ArrowUp: up,
+      ArrowDown: down,
+      ArrowLeft: left,
+      ArrowRight: right
     }
 
     Keybind.setup(keymap)
@@ -64,8 +69,6 @@ class Game {
     addEventListener('resize', () => {
       this.canvas.width = this.width
       this.canvas.height = this.height
-
-      R.invoke('setup')
     })
 
     R.invoke('setup')
