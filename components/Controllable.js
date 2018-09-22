@@ -9,7 +9,7 @@ export default class Controllable {
     this.moveBy = Math.round(this.size / 6)
   }
 
-  get colliding() {
+  checkCollision() {
     const {size} = this
     const {x, y} = this.position
 
@@ -42,7 +42,7 @@ export default class Controllable {
   }
 
   up() {
-    if (this.colliding) return
+    if (this.isColliding) return
 
     this.position.y -= this.moveBy
 
@@ -52,7 +52,7 @@ export default class Controllable {
   }
 
   down() {
-    if (this.colliding) return
+    if (this.isColliding) return
 
     this.position.y += this.moveBy
 
@@ -64,7 +64,7 @@ export default class Controllable {
   }
 
   left() {
-    if (this.colliding) return
+    if (this.isColliding) return
 
     this.position.x -= this.moveBy
 
@@ -74,7 +74,7 @@ export default class Controllable {
   }
 
   right() {
-    if (this.colliding) return
+    if (this.isColliding) return
 
     this.position.x += this.moveBy
 

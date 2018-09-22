@@ -8,7 +8,7 @@ export default class Player extends Controllable {
     const {size, position: {x, y}} = this
     let color = '#fff'
 
-    if (this.isColliding) {
+    if (this.checkCollision()) {
       color = '#2d2d30'
     }
 
