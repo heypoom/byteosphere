@@ -1,19 +1,25 @@
+import Game from "../core/Game.js"
 import Vector from "../core/Vector.js"
 
 export default class Pillar {
-  reverse = false
   moveBy = 5
+  reverse = false
   position = new Vector()
+
+  width = 10
+  height = Game.height
+
+  collide = true
 
   constructor(x = 30) {
     this.position.x = x
   }
 
   /** @param {CanvasRenderingContext2D} ctx */
-  update(ctx, game) {
+  update(ctx) {
     const {x, y} = this.position
 
-    if (x > game.width) {
+    if (x > Game.width) {
       this.reverse = true
     } else if (x < 0) {
       this.reverse = false
@@ -26,6 +32,6 @@ export default class Pillar {
     }
 
     ctx.fillStyle = 'white'
-    ctx.fillRect(x, y, 10, game.height)
+    ctx.fillRect(x, y, this.width, this.height)
   }
 }

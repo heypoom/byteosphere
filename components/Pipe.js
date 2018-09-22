@@ -1,11 +1,15 @@
 import Vector from "../core/Vector.js"
 
 export default class Pipe {
-  reverse = false
   moveBy = 5
-  height = 0
-  maxHeight = 500
+  reverse = false
   position = new Vector()
+
+  width = 25
+  height = 0
+  maxHeight = 400
+
+  collide = true
 
   constructor(x = 100) {
     this.position.x = x
@@ -32,6 +36,6 @@ export default class Pipe {
     const {x, y} = this.position
 
     ctx.fillStyle = 'white'
-    ctx.fillRect(x, y, 30, this.height)
+    ctx.fillRect(x, y, this.width, this.height)
   }
 }

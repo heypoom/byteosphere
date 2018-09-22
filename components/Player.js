@@ -6,9 +6,14 @@ export default class Player extends Controllable {
   /** @param {CanvasRenderingContext2D} ctx */
   update(ctx) {
     const {size, position: {x, y}} = this
+    let color = '#fff'
 
-    ctx.fillStyle = 'white'
-    ctx.strokeStyle = 'white'
+    if (this.isColliding) {
+      color = '#2d2d30'
+    }
+
+    ctx.fillStyle = color
+    ctx.strokeStyle = color
     ctx.lineWidth = 5
 
     const b = 10
