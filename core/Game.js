@@ -52,6 +52,10 @@ class Game {
     const right = () => player.right()
     const left = () => player.left()
 
+    const toggleRotation = () => player.setRotation(!player.rotating)
+    const rotateNorth = () => player.setRotation(player.rotating, player.rotateBy + 0.001)
+    const rotateSouth = () => player.setRotation(player.rotating, player.rotateBy - 0.001)
+
     const keymap = {
       w: up,
       s: down,
@@ -61,7 +65,11 @@ class Game {
       ArrowUp: up,
       ArrowDown: down,
       ArrowLeft: left,
-      ArrowRight: right
+      ArrowRight: right,
+
+      k: rotateNorth,
+      j: rotateSouth,
+      ' ': toggleRotation
     }
 
     Keybind.setup(keymap)

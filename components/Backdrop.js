@@ -5,6 +5,7 @@ export default class Backdrop {
     this.stop++
   
     ctx.fillStyle = `hsla(${this.stop}, 80%, 60%, 1.0)`
+    // ctx.fillStyle = '#2d2d30'
     ctx.fillRect(0, 0, game.width, game.height)
 
     if (this.stop > 360) {
